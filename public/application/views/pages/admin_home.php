@@ -24,7 +24,7 @@
         <li><a href="result_home.html">Result</a></li>
       </ul>
       <ul class="side-nav flow-text" id="mobile-demo">
-        
+
          <li class=""><a href="#" class="blue-text">Aditya V</a></li>
         <li><a href="admin_home.html">Users</a></li>
         <li><a href="exam_home.html">Exam</a></li>
@@ -51,36 +51,36 @@
 	 <button class="btn waves-effect red darken-4" type="submit" name="action">Submit
     <i class="material-icons right">send</i>
   </button>
-	
+
     </form>
-	
-  
+
+
 	</div>
 
 	<div class="col m5 pull-m6  m ">
 		<h4>CREATE USER</h4>
-			<form class="col m12">
+			<form class="col m12" action="<?=base_url('/index.php/First/createUser')?>">
 				<div class="row">
 					<div class="input-field col m9">
-						<input value="" id="first_name" type="text" class="validate">
+						<input value="" id="first_name" type="text" class="validate" name="fname">
 						<label class="active" for="first_name2">Name</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col m9">
-						<input id="regnum" type="text" class="validate">
+						<input id="regnum" type="text" class="validate" name="regnum">
 						<label for="register number">Register Number</label>
 					</div>
 				</div>
       <div class="row">
         <div class="input-field col m9">
-          <input id="password" type="password" class="validate">
+          <input id="password" type="password" class="validate" name="password">
           <label for="password">Password</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col m12">
-          <input id="email" type="email" class="validate">
+          <input id="email" type="email" class="validate" name="email">
           <label for="email">Email</label>
         </div>
       </div>
@@ -91,8 +91,8 @@
   </div>
   </div>
 
-  
-   
+
+
 </body>
 <!--<div class="footer-copyright">
             <div class="container">
