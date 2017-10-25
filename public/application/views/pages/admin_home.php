@@ -19,16 +19,18 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse">
         <i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="admin_home.html">Users</a></li>
+        <li class="active"><a href="admin_home.html" >Users</a></li>
         <li><a href="exam_home.html">Exam</a></li>
         <li><a href="result_home.html">Result</a></li>
+				<li><a href="<?=base_url('/index.php/First/logout')?>">Logout</a></li>
       </ul>
       <ul class="side-nav flow-text" id="mobile-demo">
 
          <li class=""><a href="#" class="blue-text">Aditya V</a></li>
-        <li><a href="admin_home.html">Users</a></li>
+        <li class='active'><a href="admin_home.html">Users</a></li>
         <li><a href="exam_home.html">Exam</a></li>
         <li><a href="result_home.html">Results</a></li>
+				<li><a href="<?=base_url('/index.php/First/logout')?>">Logout</a></li>
       </ul>
     </div>
 </nav><br><br>
@@ -38,13 +40,13 @@
 	<form class="col s9">
 	<div class="row">
 					<div class="input-field col m9">
-						<input id="regnum" type="text" class="validate">
+						<input id="regnum" type="text" class="validate" required>
 						<label for="register number">Register Number</label>
 					</div>
 				</div>
       <div class="row">
         <div class="input-field col m9">
-          <input id="password" type="password" class="validate">
+          <input id="password" type="password" class="validate"required>
           <label for="password">Password</label>
         </div>
       </div>
@@ -62,25 +64,25 @@
 			<form class="col m12" action="<?=base_url('/index.php/First/createUser')?>">
 				<div class="row">
 					<div class="input-field col m9">
-						<input value="" id="first_name" type="text" class="validate" name="fname">
+						<input value="" id="first_name" type="text" class="validate" name="fname" required>
 						<label class="active" for="first_name2">Name</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col m9">
-						<input id="regnum" type="text" class="validate" name="regnum">
+						<input id="regnum" type="text" class="validate" name="regnum" required>
 						<label for="register number">Register Number</label>
 					</div>
 				</div>
       <div class="row">
         <div class="input-field col m9">
-          <input id="password" type="password" class="validate" name="password">
+          <input id="password" type="password" class="validate" name="password" required>
           <label for="password">Password</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col m12">
-          <input id="email" type="email" class="validate" name="email">
+          <input id="email" type="email" class="validate" name="email" required>
           <label for="email">Email</label>
         </div>
       </div>

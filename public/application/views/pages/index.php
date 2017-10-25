@@ -35,7 +35,7 @@
        					 </div>
 
        					 <div class="card-content">
-       					   <p><form class="myForm" action="<?=base_url('index.php/First/login');?>" method="post">
+       					   <p><form class="myForm" action="<?=base_url('index.php/First/admin');?>" method="post">
       								<div class="row">
       								  <div class="input-field ">
      								     <i class="material-icons prefix">account_circle</i>
