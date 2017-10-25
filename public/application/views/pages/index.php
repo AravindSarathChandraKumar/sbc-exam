@@ -35,7 +35,7 @@
        					 </div>
 
        					 <div class="card-content">
-       					   <p><form class="myForm" action="<?=base_url('index.php/First/admin');?>" method="post">
+       					   <p><form class="myForm" action="<?=base_url('index.php/First/login');?>" method="post">
       								<div class="row">
       								  <div class="input-field ">
      								     <i class="material-icons prefix">account_circle</i>
@@ -47,7 +47,7 @@
     								      <input id="icon_telephone" type="password" class="validate" name="password">
     								      <label for="icon_telephone" class="active">Password</label>
 										</div>
-										<button class="btn waves-effect waves-light blue col offset-l1" type="submit" name="action">Submit
+										<button class="btn waves-effect waves-light blue col offset-l1" type="submit" >Submit
     									<i class="material-icons right">send</i>
  										 </button>
    									   </div>
