@@ -60,7 +60,7 @@ class First extends CI_Controller {
 			$this->db->insert('users',$data);
 			$this->load->library('session');
 			echo"<script>alert('User created')</script>";
-			redirect(base_url('/index.php/First/admin'));
+			$this->load->view('pages/admin_home');
 
 
 		}
