@@ -30,8 +30,8 @@
         			<div class="card-image">
         				 <img src="http://www.sbce.ac.in/upload/home_slider/1436291416_BUILDING_JOINING.jpg">
         					<span class="card-title"> Student</span>
-        						  <a class="btn-floating halfway-fab waves-effect waves-light blue" href="admin_login.html">
-        						  	<i class="material-icons">account_balance</i></a>
+        						  <a class="btn-floating halfway-fab waves-effect waves-light blue" href="<?=base_url('/index.php/First/view/signup')?>">
+        						  	<i class="material-icons">person_add</i></a>
        					 </div>
 
        					 <div class="card-content">

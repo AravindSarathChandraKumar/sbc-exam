@@ -19,17 +19,17 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse">
         <i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="active"><a href="admin_home.html" >Users</a></li>
-        <li><a href="exam_home.html">Exam</a></li>
-        <li><a href="result_home.html">Result</a></li>
+        <li class="active"><a href="#" >Users</a></li>
+        <li><a href="#">Exam</a></li>
+        <li><a href="#">Result</a></li>
 				<li><a href="<?=base_url('/index.php/First/logout')?>">Logout</a></li>
       </ul>
       <ul class="side-nav flow-text" id="mobile-demo">
 
          <li class=""><a href="#" class="blue-text">Aditya V</a></li>
-        <li class='active'><a href="admin_home.html">Users</a></li>
-        <li><a href="exam_home.html">Exam</a></li>
-        <li><a href="result_home.html">Results</a></li>
+        <li class='active'><a href="#">Users</a></li>
+        <li><a href="#">Exam</a></li>
+        <li><a href="#">Results</a></li>
 				<li><a href="<?=base_url('/index.php/First/logout')?>">Logout</a></li>
       </ul>
     </div>
@@ -47,7 +47,7 @@
       <div class="row">
         <div class="input-field col m9">
           <input id="email" type="email" class="validate" name="email" required>
-          <label for="password">E-mailx	</label>
+          <label for="password">E-mail</label>
         </div>
       </div>
 	 <button class="btn waves-effect red darken-4" type="submit" name="action">Submit

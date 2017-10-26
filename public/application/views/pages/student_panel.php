@@ -19,16 +19,16 @@
 	      <a href="#" data-activates="mobile-demo" class="button-collapse">
 	        <i class="material-icons">menu</i></a>
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
-	        <li class="active"><a href="admin_home.html" >Home</a></li>
-	        <li><a href="exam_home.html">Option</a></li>
+	        <li class="active"><a href="#" >Home</a></li>
+	        <li><a href="#">Option</a></li>
 
 					<li><a href="<?=base_url('/index.php/First/logout')?>">Logout</a></li>
 	      </ul>
 	      <ul class="side-nav flow-text" id="mobile-demo">
 
 	         <li class=""><a href="#" class="blue-text">Aditya V</a></li>
-					 <li class="active"><a href="admin_home.html" >Home</a></li>
- 	        <li><a href="exam_home.html">OPTION</a></li>
+					 <li class="active"><a href="#" >Home</a></li>
+ 	        <li><a href="#">OPTION</a></li>
 
  					<li><a href="<?=base_url('/index.php/First/logout')?>">Logout</a></li
 	      </ul>
