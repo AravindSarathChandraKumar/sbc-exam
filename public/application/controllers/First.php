@@ -72,7 +72,15 @@ class First extends CI_Controller {
 			$this->load->library('session');
 
 			$config = Array(
-		    '
+		     'protocol' => 'smtp',
+		     'smtp_host' => 'smtp.sendgrid.net',
+		     'smtp_port' => 587,
+		     'smtp_user' => 'apikey', // change it to yours
+		     change it to yours
+		     'mailtype' => 'html',
+		     'charset' => 'iso-8859-1',
+		     'wordwrap' => TRUE,
+				 'newline' => '\n'
   		);
 		$email=$_POST['email'];
 	  $this->load->library('email', $config);
