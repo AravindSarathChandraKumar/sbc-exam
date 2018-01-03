@@ -76,7 +76,11 @@ class First extends CI_Controller {
 		     'smtp_host' => 'smtp.sendgrid.net',
 		     'smtp_port' => 587,
 		     'smtp_user' => 'apikey', // change it to yours
+<<<<<<< HEAD
 		     change it to yours
+=======
+		     'smtp_pass' => '', // change it to yours
+>>>>>>> 3e067658e60bb606f7758d711ebc796b22007bf0
 		     'mailtype' => 'html',
 		     'charset' => 'iso-8859-1',
 		     'wordwrap' => TRUE,
