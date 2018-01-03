@@ -20,7 +20,7 @@
         <i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li class="active"><a href="#" >Users</a></li>
-        <li><a href="#">Exam</a></li>
+        <li><a href="<?=base_url('/index.php/First/view/admin_exam')?>">Exam</a></li>
         <li><a href="#">Result</a></li>
 				<li><a href="<?=base_url('/index.php/First/logout')?>">Logout</a></li>
       </ul>
@@ -53,8 +53,21 @@
 	 <button class="btn waves-effect red darken-4" type="submit" name="action">Submit
     <i class="material-icons right">send</i>
   </button>
-
+<br><br>
     </form>
+		<form class="col s9" action="<?=base_url('/index.php/First/listUser')?>" method="post" target="_blank">
+
+	      <div class="row">
+	        <div class="input-field col m9">
+	          <input id="email" type="text" class="validate" name="sem" required>
+	          <label for="password">Enter class code</label>
+	        </div>
+	      </div>
+		 <button class="btn waves-effect red darken-4" type="submit" name="action" >List
+	    <i class="material-icons right">send</i>
+	  </button>
+
+	    </form>
 
 
 	</div>

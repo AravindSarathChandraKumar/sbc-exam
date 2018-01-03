@@ -9,9 +9,6 @@ class First extends CI_Controller {
 			if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
 				show_404();
 			}
-
-
-
 			$this->load->view('pages/'.$page);
 
 		}
@@ -75,15 +72,7 @@ class First extends CI_Controller {
 			$this->load->library('session');
 
 			$config = Array(
-		     'protocol' => 'smtp',
-		     'smtp_host' => 'smtp.sendgrid.net',
-		     'smtp_port' => 587,
-		     'smtp_user' => 'apikey', // change it to yours
-		     'smtp_pass' => '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', // change it to yours
-		     'mailtype' => 'html',
-		     'charset' => 'iso-8859-1',
-		     'wordwrap' => TRUE,
-				 'newline' => '\n'
+		    '
   		);
 		$email=$_POST['email'];
 	  $this->load->library('email', $config);
@@ -93,10 +82,20 @@ class First extends CI_Controller {
     $this->email->subject("Email Verification");
 	  $this->email->message("Dear User,<br><br> Please  paste into your PIN to verify your Email Address <br>One Time Pin :- <b>".$data['hash']."</b><br><br><br>Thanks,<br>Admin Team");
 	  $this->email->send();
-	  $this->email->send();
+
 		$this->load->view('pages/verification');
 
 
+		}
+		public function createQuestion(){
+			$this->load->view('pages/create_question');
+		}
+		public function listUser(){
+			$data['sem']=$_POST['sem'];
+			 $data['result']=$this->SBC->listUsers($data);
+
+			 $this->load->view('pages/userlist',$data);
+			//print_r($result);
 		}
 		public function removeUser(){
 			$data['regnum']=$_POST['regnum'];
@@ -104,7 +103,7 @@ class First extends CI_Controller {
 			$result=$this->SBC->remove_user($data);
 			if($result==true){
 				echo"<script>alert('User Removed')</script>";
-			}else{echo"<script>alert('Cannot remove User')</script>";}
+			}else{echo"<script>alert('No such User')</script>";}
 			$this->load->library('session');
 			$this->load->view('pages/admin_home');
 		}
@@ -114,9 +113,11 @@ class First extends CI_Controller {
 			$result=$this->SBC->verifyUser($data);
 			if($result == false){
 				echo"<script>Verification Failed:Check email</script>";
-				$this->load->view('verification');
+				$this->load->view('pages/verification');
 			}elseif($result == true){
 
+			echo"<script>alert('Account created.Please click OK');</script>";
+			$this->load->view('pages/index');
 			}
 		}
 		public function logout(){

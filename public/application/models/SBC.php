@@ -22,6 +22,16 @@ class SBC extends CI_Model{
     }
 
   }
+  public function listUsers($data){
+
+    $condition="reg_id LIKE" . "'" . $data['sem'] . "%" . "' ";
+    $this->db->select('*');
+    $this->db->from('users');
+    $this->db->where($condition);
+    $query = $this->db->get();
+
+    return $query->result_array();
+  }
   public function login($data){
     $condition = "username =" . "'" . $data['username'] . "' AND " . "password =" . "'" . $data['password'] . "'";
     $this->db->select('*');
