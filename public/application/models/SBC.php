@@ -32,15 +32,16 @@ class SBC extends CI_Model{
 
     $SQL= 'SELECT QstnId from  questions where (Id = '.$value.');';
     $query = $this->db->query($SQL);
-    return $query->result_array();
+    foreach ($query->result() as $row)
+    {
+        $this->load->dbforge();
+        $fetched = $row->QstnId;
+        $this->dbforge->drop_table($fetched);
 
-    $this->load->dbforge();
-    $this->dbforge->drop_table($query);
-
-  //  $this->db->where('Id', $value);
-  //  $this->db->delete('questions');
-
-  //  return true;
+    }
+  $this->db->where('Id', $value);
+  $this->db->delete('questions');
+  return true;
 
   }
   public function createQstn($datas){

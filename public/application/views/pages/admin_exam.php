@@ -35,9 +35,10 @@
   <table>
         <thead>
             <tr>
-              <th>Question No</th>
+              <th>Qstn Paper</th>
               <th>Title</th>
               <th>Auther</th>
+              <th>Semester</th>
               <th></th>
               <th></th>
           </tr>
@@ -51,8 +52,9 @@
             }?>
             <tr>
               <td><?=$question{'Id'};?></td>
-              <td><?=$question{'Title'};?></td>
+              <td><?=$question{'Title'};?>(<?=$question{'QstnId'};?>)</td>
               <td><?=$question{'Author'};?></td>
+              <td><?=$question{'Semester'};?></td>
               <td>
                       <a class="btn btn-floating btn-small cyan pulse" type ><i class="material-icons">edit</i></a>
 
