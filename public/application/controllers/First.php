@@ -9,7 +9,8 @@ class First extends CI_Controller {
 			if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
 				show_404();
 			}
-			$this->load->view('pages/'.$page);
+				$data['questions']=$this->SBC->fetchQuestions();
+			$this->load->view('pages/'.$page,$data);
 
 		}
 		public function admin(){
@@ -76,11 +77,7 @@ class First extends CI_Controller {
 		     'smtp_host' => 'smtp.sendgrid.net',
 		     'smtp_port' => 587,
 		     'smtp_user' => 'apikey', // change it to yours
-<<<<<<< HEAD
-		     change it to yours
-=======
-		     'smtp_pass' => '', // change it to yours
->>>>>>> 3e067658e60bb606f7758d711ebc796b22007bf0
+		     'smtp_pass' => '#', // change it to yours
 		     'mailtype' => 'html',
 		     'charset' => 'iso-8859-1',
 		     'wordwrap' => TRUE,
@@ -100,7 +97,16 @@ class First extends CI_Controller {
 
 		}
 		public function createQuestion(){
-			$this->load->view('pages/create_question');
+			$datas['Title']=$_POST['title'];
+			$datas['noQstn']=$_POST['noQstn'];
+			$datas['Author']=$_POST['author'];
+			$datas['semester']=$_POST['semester'];
+
+			$datas['QstnIds']=$datas['semester'].$_POST['QstnId'];
+			$value=$this->SBC->createQstn($datas);
+			if($value){
+				echo '<h1 style ="text-align:center;color:red">Question Paper Created...!Kindly close this window</h1>';
+			}
 		}
 		public function listUser(){
 			$data['sem']=$_POST['sem'];
@@ -130,6 +136,18 @@ class First extends CI_Controller {
 
 			echo"<script>alert('Account created.Please click OK');</script>";
 			$this->load->view('pages/index');
+			}
+		}
+		public function removeQuestion(){
+
+			if ($_POST['qstnId']!==''){
+				$status=$this->SBC->removeQstn($_POST['qstnId']);
+				If ($status){
+					$this->load->library('session');
+					$data['questions']=$this->SBC->fetchQuestions();
+					$this->load->view('pages/admin_exam',$data);
+
+				}
 			}
 		}
 		public function logout(){

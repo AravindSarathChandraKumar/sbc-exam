@@ -22,6 +22,82 @@ class SBC extends CI_Model{
     }
 
   }
+  public function fetchQuestions(){
+    $this->db->select('*');
+    $this->db->from('questions');
+    $query = $this->db->get();
+    return $query->result_array();
+  }
+  public function removeQstn($value){
+
+    $SQL= 'SELECT QstnId from  questions where (Id = '.$value.');';
+    $query = $this->db->query($SQL);
+    return $query->result_array();
+
+    $this->load->dbforge();
+    $this->dbforge->drop_table($query);
+
+  //  $this->db->where('Id', $value);
+  //  $this->db->delete('questions');
+
+  //  return true;
+
+  }
+  public function createQstn($datas){
+    $data['Title']=$datas['Title'];
+    $data['noQstn']=$datas['noQstn'];
+    $data['Semester']=$datas['semester'];
+    $data['Author']=$datas['Author'];
+    $data['QstnId']=$datas['QstnIds'];
+    $this->db->insert('questions',$data);
+
+    $this->db->query('use SBC');
+
+    // define table fields
+    $fields = array(
+      'Id' => array(
+        'type' => 'INT',
+        'constraint' => 9,
+        'unsigned' => TRUE,
+        'auto_increment' => TRUE
+      ),
+      'Question' => array(
+        'type' => 'VARCHAR',
+        'constraint' => 100
+      ),
+      'Option1' => array(
+        'type' => 'VARCHAR',
+        'constraint' => 30
+      ),
+      'Option2' => array(
+        'type' => 'VARCHAR',
+        'constraint' => 30
+      ),
+      'Option3' => array(
+        'type' => 'VARCHAR',
+        'constraint' => 30
+      ),
+      'Option4' => array(
+        'type' => 'VARCHAR',
+        'constraint' => 30
+      ),
+      'answer' => array(
+        'type' => 'VARCHAR',
+        'constraint' => 60,
+        'unique' => TRUE
+      )
+     );
+     $this->load->dbforge();
+    $this->dbforge->add_field($fields);
+
+    // define primary key
+    $this->dbforge->add_key('Id', TRUE);
+
+    // create table
+    $this->dbforge->create_table($data['QstnId'],TRUE);
+    return true;
+
+  }
   public function listUsers($data){
 
     $condition="reg_id LIKE" . "'" . $data['sem'] . "%" . "' ";
