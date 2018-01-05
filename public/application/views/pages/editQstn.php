@@ -10,7 +10,7 @@
 
 <div class = "container">
 
-    <form class="col m12" >
+    <form class="col m12" action="<?=base_url('/index.php/First/insertQuestion')?>" method="post" target="_blank">
       <div class="row">
         <div class="input-field col m3">
           <input value="<?=$index;?>" id="first_name"name="question_no" disabled >
@@ -59,15 +59,5 @@
   <i class="material-icons right">send</i>
   </button>
   </form>
-  <script>
-  $(function() {
-    $('.submit').click(function() {
-        $.ajax({
-            type: 'POST',
-            url: '<?=base_url('/index.php/First/insertQuestion')?> ',
-          });
-    });
-})
-
-  </script>
+  
 </div>
