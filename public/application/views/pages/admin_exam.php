@@ -56,7 +56,7 @@
               <td><?=$question{'Author'};?></td>
               <td><?=$question{'Semester'};?></td>
               <td>
-                      <a class="btn btn-floating btn-small cyan pulse" type ><i class="material-icons">edit</i></a>
+                      <a class="btn btn-floating btn-small cyan pulse" href="<?=base_url('/index.php/First/addQstn/'.$question{'QstnId'}.'/'.$question{'noQstn'})?>" target="_blank"><i class="material-icons">edit</i></a>
 
               </td>
               <form action="<?=base_url('/index.php/First/removeQuestion')?>"  method="post">
@@ -72,4 +72,12 @@
   </form>
 
 </div>
+<script>
+// Show sideNav
+   $(".button-collapse").sideNav();
+ $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+
+  </script>
 </html>

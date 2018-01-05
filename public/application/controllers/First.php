@@ -150,6 +150,30 @@ class First extends CI_Controller {
 				}
 			}
 		}
+	public function addQstn(){
+		$this->load->helper('url');
+		$datas['QstnId']=$this->uri->segment(3);
+		$datas['noQstn']=$this->uri->segment(4);
+		for($i=1;$i<$datas['noQstn'];$i++){
+				$data = array(
+    			'index'=>$i,);
+				$this->load->view('pages/editQstn',$data);
+		}
+
+	}
+	public function insertQuestion(){
+		$this->load->helper('url');
+		$QstnId=$this->uri->segment(3);
+		$data['Id']=$_POST['question_no'];
+		$data['Question']=$_POST['question'];
+		$data['Option1']=$_POST['op1'];
+		$data['Option2']=$_POST['op2'];
+		$data['Option3']=$_POST['op3'];
+		$data['Option4']=$_POST['op4'];
+		$data['answer']=$_POST['ans'];
+
+		$this->db->insert($QstnId,$data);
+	}
 		public function logout(){
 			$this->load->library('session');
 			$this->session->unset_userdata('user');

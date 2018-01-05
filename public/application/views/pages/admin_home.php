@@ -28,7 +28,7 @@
 
          <li class=""><a href="#" class="blue-text">Aditya V</a></li>
         <li class='active'><a href="#">Users</a></li>
-        <li><a href="#">Exam</a></li>
+        <li><a href="<?=base_url('/index.php/First/view/admin_exam')?>">Exam</a></li>
         <li><a href="#">Results</a></li>
 				<li><a href="<?=base_url('/index.php/First/logout')?>">Logout</a></li>
       </ul>

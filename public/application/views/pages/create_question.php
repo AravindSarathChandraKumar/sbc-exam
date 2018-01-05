@@ -68,3 +68,12 @@
   </button>
   </form>
 </div>
+<script>
+// Show sideNav
+   $(".button-collapse").sideNav();
+ $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+
+  </script>
+  </html>
