@@ -32,11 +32,11 @@ class First extends CI_Controller {
 						$user['username']=$_POST['username'];
 						$this->session->set_userdata[$user];
 						$this->load->view('pages/admin_home');
-					}elseif($result==true){
+					}elseif($result!=NULL){
 						$this->load->library('session');
 						$user['username']=$_POST['username'];
 						$this->session->set_userdata[$user];
-						$this->load->view('pages/student_panel');
+						$this->load->view('pages/student_panel',$result);
 
 					}
 					elseif($result==false){

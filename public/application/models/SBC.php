@@ -116,11 +116,13 @@ class SBC extends CI_Model{
     $this->db->where($condition);
     $this->db->limit(1);
     $query = $this->db->get();
-
+    $back=$query->result_array();
     if ($query->num_rows() == 1) {
-    return true;
+      return $back;
+
+
     } else {
-    return false;
+      return false;
     }
     }
     public function verifyUser($data){

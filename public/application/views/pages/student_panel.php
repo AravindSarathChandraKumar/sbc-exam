@@ -42,11 +42,13 @@
             <div class="card-content white-text">
 			 <i class="small material-icons">account_box</i>
               <span class="card-title">PROFILE</span><br>
-              <p>Name:-</p><br>
+						<?php foreach ($results as $result ):?>
+              <p>Name:-</p><?=$results{'fname'};?><br>
 							<p>Roll No:-</p><br>
 							<p>Register no:-</p><br>
 							<p>E-mail:-</p><br>
 							<p>Username:-</p><br>
+						<?php endforeach;?>
             </div>
             <div class="card-action">
 
