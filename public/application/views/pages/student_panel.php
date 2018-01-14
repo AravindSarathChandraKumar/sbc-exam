@@ -50,6 +50,7 @@ a{color:white;}
 							<p><b>E-mail:-</b> <?=$profiles{'email'};?></p><br>
 							<p><b>Username:-</b> <?=$profiles{'username'};?></p><br>
 						<?php endforeach;?>
+						
             </div>
             <div class="card-action">
 
@@ -62,7 +63,7 @@ a{color:white;}
 			 <i class="small material-icons">assignment</i>
               <span class="card-title">NEW</span><br>
 							  <?php foreach ($questions as $question ):?>
-              <li><a href="<?=base_url('/index.php/First/attendQstn/'.$question{'QstnId'})?>"><?=$question{'Title'};?></a></li><br>
+              <li><a href="<?=base_url('/index.php/First/attendQstn/'.$question{'QstnId'})?>" target="_blank"><?=$question{'Title'};?></a></li><br>
 
 						<?php endforeach?>
             </div>

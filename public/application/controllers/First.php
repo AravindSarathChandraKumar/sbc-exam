@@ -182,8 +182,13 @@ class First extends CI_Controller {
 	public function attendQstn(){
 		$this->load->helper('url');
 		$data['QstnId']=$this->uri->segment(3);
-		$result=$this->SBC->loadQstn($data);
-		$this->load->view('pages/index');
+		$result['question']=$this->SBC->loadQstn($data);
+		$this->load->library('session');
+		if($result['question']!=NULL){
+			$this->load->view('pages/attend',$result);
+		}else{
+			echo 'No Questions found..!';
+				}
 	}
 	public function insertQuestion(){
 
@@ -193,7 +198,7 @@ class First extends CI_Controller {
 
 			$data['Question']=	$_POST['question_'.$i];
 			$data['Option1']=	$_POST['op1_'.$i.''];
-			$data['Option2']=	$_POST['op1_'.$i.''];
+			$data['Option2']=	$_POST['op2_'.$i.''];
 			$data['Option3']=	$_POST['op3_'.$i.''];
 			$data['Option4']= $_POST['op4_'.$i.''];
 			$data['answer']=$_POST['ans_'.$i.''];
@@ -201,6 +206,27 @@ class First extends CI_Controller {
 		}
 
 	}
+		public function evaluate(){
+			if(isset($_POST['noQstn'])){
+				$loop=$_POST['noQstn'];
+			}else
+			{echo 'No question answered';}
+			$mark=0;
+			for($i=1;$i<$loop+1;$i++){
+
+				if(isset($_POST['chance_'.$i])){
+					$check=	$_POST['chance_'.$i];
+				}else{
+					$check=NULL;
+				}
+				$answer=$_POST['answer_'.$i];
+				if($check==$answer){
+					$mark=$mark+1;
+				}
+			}
+			echo 'Your mark is'.$mark;
+
+		}
 		public function logout(){
 			$this->load->library('session');
 			$this->session->unset_userdata('username');

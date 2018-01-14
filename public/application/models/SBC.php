@@ -85,7 +85,7 @@ class SBC extends CI_Model{
       'answer' => array(
         'type' => 'VARCHAR',
         'constraint' => 60,
-        
+
       )
      );
      $this->load->dbforge();
@@ -133,6 +133,12 @@ class SBC extends CI_Model{
       $this->db->where($condition);
       $query=$this->db->get();
       return $query->result_array();
+    }
+    public function loadQstn($data){
+     $this->db->select('*');
+     $this->db->from($data['QstnId']);
+     $query =$this->db->get();
+     return $query->result_array();
     }
     public function verifyUser($data){
         $condition = "hash =" . "'" . $data['hash'] . "'";
