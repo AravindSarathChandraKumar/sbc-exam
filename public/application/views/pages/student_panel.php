@@ -9,7 +9,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 
-
+<style>
+a{color:white;}
+</style>
 </head>
 <body>
 
@@ -20,7 +22,7 @@
 	        <i class="material-icons">menu</i></a>
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
 	        <li class="active"><a href="#" >Home</a></li>
-	        <li><a href="#">Option</a></li>
+	        <li><a href="<?=base_url('/index.php/First/view/student_qstn')?>">Option</a></li>
 
 					<li><a href="<?=base_url('/index.php/First/logout')?>">Logout</a></li>
 	      </ul>
@@ -28,7 +30,7 @@
 
 	         <li class=""><a href="#" class="blue-text">Aditya V</a></li>
 					 <li class="active"><a href="#" >Home</a></li>
- 	        <li><a href="#">OPTION</a></li>
+ 	        <li><a href="<?=base_url('/index.php/First/view/student_qstn')?>">OPTION</a></li>
 
  					<li><a href="<?=base_url('/index.php/First/logout')?>">Logout</a></li
 	      </ul>
@@ -42,12 +44,11 @@
             <div class="card-content white-text">
 			 <i class="small material-icons">account_box</i>
               <span class="card-title">PROFILE</span><br>
-						<?php foreach ($results as $result ):?>
-              <p>Name:-</p><?=$results{'fname'};?><br>
-							<p>Roll No:-</p><br>
-							<p>Register no:-</p><br>
-							<p>E-mail:-</p><br>
-							<p>Username:-</p><br>
+						<?php foreach ($profile as $profiles ):?>
+              <p><b>Name:-</b> <?=$profiles{'fname'};?></p><br>
+							<p><b>Register no:-</b> <?=$profiles{'reg_id'};?></p><br>
+							<p><b>E-mail:-</b> <?=$profiles{'email'};?></p><br>
+							<p><b>Username:-</b> <?=$profiles{'username'};?></p><br>
 						<?php endforeach;?>
             </div>
             <div class="card-action">
@@ -59,12 +60,11 @@
 		<div class="card cyan darken-2 ">
             <div class="card-content white-text">
 			 <i class="small material-icons">assignment</i>
-              <span class="card-title">NOTIFICATIONS</span><br>
-              <li>Listed notificaion1</li><br>
-							<li>Listed notificaion2</li><br>
-							<li>Listed notificaion2</li><br>
-							<li>Listed notificaion4</li><br>
-							<li>Listed notificaion5</li><br>
+              <span class="card-title">NEW</span><br>
+							  <?php foreach ($questions as $question ):?>
+              <li><a href="<?=base_url('/index.php/First/attendQstn/'.$question{'QstnId'})?>"><?=$question{'Title'};?></a></li><br>
+
+						<?php endforeach?>
             </div>
             <div class="card-action">
 

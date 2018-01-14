@@ -9,8 +9,21 @@ class First extends CI_Controller {
 			if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
 				show_404();
 			}
+				$this->load->library('session');
+
+				$user['username']=$this->session->userdata('username');
+				if($user['username']!='admin')
+				{
+						$data['profile']=$this->SBC->fetchProfile($user);
+				}
 				$data['questions']=$this->SBC->fetchQuestions();
-			$this->load->view('pages/'.$page,$data);
+
+
+			if($this->session->has_userdata('username')){
+				$this->load->view('pages/'.$page,$data);
+			}else{
+				$this->load->view('pages/index');
+			}
 
 		}
 		public function admin(){
@@ -29,14 +42,16 @@ class First extends CI_Controller {
 					$result=$this->SBC->login($data);
 					if ($_POST['username']=='admin' && $_POST['password'] == 'admin@sbce'){
 						$this->load->library('session');
-						$user['username']=$_POST['username'];
-						$this->session->set_userdata[$user];
+
+						$this->session->set_userdata(array('username'=>$_POST['username']));
 						$this->load->view('pages/admin_home');
 					}elseif($result!=NULL){
 						$this->load->library('session');
+						$this->session->set_userdata(array('username'=>$_POST['username']));
 						$user['username']=$_POST['username'];
-						$this->session->set_userdata[$user];
-						$this->load->view('pages/student_panel',$result);
+						$data['profile']=$this->SBC->fetchProfile($user);
+						$data['questions']=$this->SBC->fetchQuestions();
+						$this->load->view('pages/student_panel',$data);
 
 					}
 					elseif($result==false){
@@ -152,31 +167,43 @@ class First extends CI_Controller {
 		}
 	public function addQstn(){
 		$this->load->helper('url');
-		$datas['QstnId']=$this->uri->segment(3);
-		$datas['noQstn']=$this->uri->segment(4);
-		for($i=1;$i<$datas['noQstn'];$i++){
-				$data = array(
-    			'index'=>$i,);
+		$data['QstnId']=$this->uri->segment(3);
+		$data['noQstn']=$this->uri->segment(4);
+
+		$data = array(
+		    'QstnId' =>$this->uri->segment(3),
+		    'noQstn' => $this->uri->segment(4),
+
+		);
 				$this->load->view('pages/editQstn',$data);
+
+
+	}
+	public function attendQstn(){
+		$this->load->helper('url');
+		$data['QstnId']=$this->uri->segment(3);
+		$result=$this->SBC->loadQstn($data);
+		$this->load->view('pages/index');
+	}
+	public function insertQuestion(){
+
+		$loop=$_POST['noQstn'];
+		$name=$_POST['QstnId'];
+		for($i=1;$i<$loop+1;$i++){
+
+			$data['Question']=	$_POST['question_'.$i];
+			$data['Option1']=	$_POST['op1_'.$i.''];
+			$data['Option2']=	$_POST['op1_'.$i.''];
+			$data['Option3']=	$_POST['op3_'.$i.''];
+			$data['Option4']= $_POST['op4_'.$i.''];
+			$data['answer']=$_POST['ans_'.$i.''];
+			    $this->db->insert($name,$data);
 		}
 
 	}
-	public function insertQuestion(){
-		$this->load->helper('url');
-		$QstnId=$this->uri->segment(3);
-		$data['Id']=$_POST['question_no'];
-		$data['Question']=$_POST['question'];
-		$data['Option1']=$_POST['op1'];
-		$data['Option2']=$_POST['op2'];
-		$data['Option3']=$_POST['op3'];
-		$data['Option4']=$_POST['op4'];
-		$data['answer']=$_POST['ans'];
-
-		$this->db->insert($QstnId,$data);
-	}
 		public function logout(){
 			$this->load->library('session');
-			$this->session->unset_userdata('user');
+			$this->session->unset_userdata('username');
 			$this->load->view('pages/index');
 		}
 }

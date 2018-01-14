@@ -85,7 +85,7 @@ class SBC extends CI_Model{
       'answer' => array(
         'type' => 'VARCHAR',
         'constraint' => 60,
-        'unique' => TRUE
+        
       )
      );
      $this->load->dbforge();
@@ -118,12 +118,21 @@ class SBC extends CI_Model{
     $query = $this->db->get();
     $back=$query->result_array();
     if ($query->num_rows() == 1) {
-      return $back;
+      if($back!=NULL)
+      {return $back;}
 
 
     } else {
       return false;
     }
+    }
+    public function fetchProfile($user){
+      $condition ="username ="."'".$user['username'] ."'";
+      $this->db->select('*');
+      $this->db->from('users');
+      $this->db->where($condition);
+      $query=$this->db->get();
+      return $query->result_array();
     }
     public function verifyUser($data){
         $condition = "hash =" . "'" . $data['hash'] . "'";
