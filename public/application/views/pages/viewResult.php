@@ -31,8 +31,8 @@
              <div class="card blue-grey darken-1">
                <div class="card-content white-text">
                  <span class="card-title">Your result</span><hr><br>
-                 <p>You got:- <b><?=$marks?> / <?=$loop?></b></p><br>
-                 <p>In percent:-<b><?php echo $marks/$loop*100; ?>%</b></p>
+                 <p>You got:- <b><?=$mark?> / <?=$noQstn?></b></p><br>
+                 <p>In percent:-<b><?php echo $mark/$noQstn*100; ?>%</b></p>
                </div>
                <div class="card-action">
               <form class="" action="<?=base_url('index.php/First/Submit');?>)" method="post">

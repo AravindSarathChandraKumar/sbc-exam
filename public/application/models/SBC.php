@@ -22,6 +22,14 @@ class SBC extends CI_Model{
     }
 
   }
+  public function fetchHistory($data){
+    $this->db->select('results.*','questions.*');
+    $this->db->from('questions');
+    $this->db->join('results','results.question_id=questions.QstnId','right outer');
+    $query = $this->db->get();
+    return $query->result();
+
+  }
   public function fetchQuestions(){
     $this->db->select('*');
     $this->db->from('questions');

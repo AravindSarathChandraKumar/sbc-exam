@@ -29,7 +29,7 @@
     </div>
 </nav><br><br>
 <div class = "container">
-  <h4>CREATE USER</h4>
+  <h4>CREATE Question Paper</h4>
     <form class="col m12" action="<?=base_url('/index.php/First/createQuestion')?>" method="post">
       <div class="row">
         <div class="input-field col m9">

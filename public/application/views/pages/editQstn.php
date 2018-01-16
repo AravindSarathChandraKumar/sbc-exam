@@ -29,32 +29,32 @@
     </div>
     <div class="row">
       <div class="input-field col m3">
-        <input  id="first_name" type="text" class="validate" name="op1_<?=$i?>" ng-model="op1_<?=$i?>" required>
-        <label class="active" for="first_name2">Option 1</label>
+        <input  id="password_<?=$i?>" type="text" class="validate" name="op1_<?=$i?>" ng-model="op1_<?=$i?>" required>
+        <label class="active" for="password_<?=$i?>">Option 1</label>
       </div>
       <input name="ans_<?=$i?>" type="radio" id="op1_<?=$i?>" value="{{op1_<?=$i?>}}" required/>
       <label for="op1_<?=$i?>">Answer</label>
     </div>
     <div class="row">
       <div class="input-field col m3">
-        <input id="regnum" type="text" class="validate" name="op2_<?=$i?>" ng-model="op2_<?=$i?>" required>
-        <label for="register number">Option 2</label>
+        <input id="password" type="text" class="validate" name="op2_<?=$i?>" ng-model="op2_<?=$i?>" required>
+        <label for="password_<?=$i?>r">Option 2</label>
       </div>
       <input name="ans_<?=$i?>" type="radio" id="op2_<?=$i?>"  value="{{op2_<?=$i?>}}" required/>
       <label for="op2_<?=$i?>">Answer</label>
     </div>
   <div class="row">
     <div class="input-field col m3">
-      <input id="password" type="text" class="validate" name="op3_<?=$i?>" ng-model="op3_<?=$i?>" required>
-      <label for="password">Option 3</label>
+      <input id="password_<?=$i?>" type="text" class="validate" name="op3_<?=$i?>" ng-model="op3_<?=$i?>" required>
+      <label for="password_<?=$i?>">Option 3</label>
     </div>
     <input name="ans_<?=$i?>" type="radio" id="op3_<?=$i?>" value="{{op3_<?=$i?>}}"required/>
     <label for="op3_<?=$i?>">Answer</label>
   </div>
   <div class="row">
     <div class="input-field col m3">
-      <input id="password" type="text" class="validate" name="op4_<?=$i?>" ng-model="op4_<?=$i?>" required>
-      <label for="password">Option 4</label>
+      <input id="password_<?=$i?>" type="text" class="validate" name="op4_<?=$i?>" ng-model="op4_<?=$i?>" required>
+      <label for="password_<?=$i?>">Option 4</label>
     </div>
     <input name="ans_<?=$i?>" type="radio" id="op4_<?=$i?>" value="{{op4_<?=$i?>}}"required />
     <label for="op4_<?=$i?>">Answer</label>

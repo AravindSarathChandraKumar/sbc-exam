@@ -15,6 +15,7 @@ class First extends CI_Controller {
 				if($user['username']!='admin')
 				{
 						$data['profile']=$this->SBC->fetchProfile($user);
+
 				}
 				$data['questions']=$this->SBC->fetchQuestions();
 
@@ -204,8 +205,9 @@ class First extends CI_Controller {
 			$data['Option4']= $_POST['op4_'.$i.''];
 			$data['answer']=$_POST['ans_'.$i.''];
 			    $this->db->insert($name,$data);
-					redirect(base_url('index.php/First/view/admin_home'));
+
 		}
+		redirect(base_url('index.php/First/view/admin_home'));
 
 	}
 		public function evaluate(){
@@ -227,16 +229,17 @@ class First extends CI_Controller {
 				}
 			}
 			$data = array(
-				'loop'=>$loop,
-				'marks'=>$mark,
+				'noQstn'=>$loop,
+				'mark'=>$mark,
 			);
 			if(isset($loop)&isset($mark)&isset($_POST['QstnId'])){
-				$data['mark']=($loop/$mark)*100;
+				$data['markPer']=($loop/$mark)*100;
 				$data['question_id']=$_POST['QstnId'];
 				$this->load->library('session');
 				$data['username']=$_SESSION['username'];
 
 			}
+			$this->db->insert('results',$data);
 			$this->load->view('pages/viewResult',$data);
 
 		}
