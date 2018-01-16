@@ -183,6 +183,7 @@ class First extends CI_Controller {
 		$this->load->helper('url');
 		$data['QstnId']=$this->uri->segment(3);
 		$result['question']=$this->SBC->loadQstn($data);
+		$result['QstnId']=$data['QstnId'];
 		$this->load->library('session');
 		if($result['question']!=NULL){
 			$this->load->view('pages/attend',$result);
@@ -203,6 +204,7 @@ class First extends CI_Controller {
 			$data['Option4']= $_POST['op4_'.$i.''];
 			$data['answer']=$_POST['ans_'.$i.''];
 			    $this->db->insert($name,$data);
+					redirect(base_url('index.php/First/view/admin_home'));
 		}
 
 	}
@@ -224,7 +226,18 @@ class First extends CI_Controller {
 					$mark=$mark+1;
 				}
 			}
-			echo 'Your mark is'.$mark;
+			$data = array(
+				'loop'=>$loop,
+				'marks'=>$mark,
+			);
+			if(isset($loop)&isset($mark)&isset($_POST['QstnId'])){
+				$data['mark']=($loop/$mark)*100;
+				$data['question_id']=$_POST['QstnId'];
+				$this->load->library('session');
+				$data['username']=$_SESSION['username'];
+
+			}
+			$this->load->view('pages/viewResult',$data);
 
 		}
 		public function logout(){

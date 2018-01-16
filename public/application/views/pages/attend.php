@@ -85,25 +85,26 @@
               <p id="<?=$ir?>"><?=$ir.')  '.$questions['Question']?></p>
 
 					<p>
-						<input class="" type="radio" id='op1' name="chance_<?=$ir?>" value="<?=$questions['Option1']?>"/>
-						<label for="op1"><?=$questions['Option1']?></label>
+						<input class="" type="radio" id='op1_<?=$ir?>' name="chance_<?=$ir?>" value="<?=$questions['Option1']?>"/>
+						<label for="op1_<?=$ir?>"><?=$questions['Option1']?></label>
 					</p>
 					<p>
-			      <input class="" type="radio" id='op2' name="chance_<?=$ir?>" value="<?=$questions['Option2']?>"/>
-						<label for="op2" ><?=$questions['Option2']?></label>
+			      <input class="" type="radio" id='op2_<?=$ir?>' name="chance_<?=$ir?>" value="<?=$questions['Option2']?>"/>
+						<label for="op2_<?=$ir?>" ><?=$questions['Option2']?></label>
 					</p>
 					<p>
-					<input class="" type="radio" id="op3"  name="chance_<?=$ir?>" value="<?=$questions['Option3']?>"/>
-						<label for="op3"><?=$questions['Option3']?></label>
+					<input class="" type="radio" id="op3_<?=$ir?>"  name="chance_<?=$ir?>" value="<?=$questions['Option3']?>"/>
+						<label for="op3_<?=$ir?>"><?=$questions['Option3']?></label>
 					</p>
 					<p>
-						<input class="" type="radio" id="op4"  name="chance_<?=$ir?>" value="<?=$questions['Option4']?>"/>
-						<label for="op4"><?=$questions['Option4']?></label>
+						<input class="" type="radio" id="op4_<?=$ir?>"  name="chance_<?=$ir?>" value="<?=$questions['Option4']?>"/>
+						<label for="op4_<?=$ir?>"><?=$questions['Option4']?></label>
 					</p>
             <input id="" type="text" name="answer_<?=$ir?>" value="<?=$questions['answer']?>" style="visibility:hidden;">
           <?php $max[] = $questions['Id'];?>
         <?php endforeach;?>
         <input id="" type="text" class="validate" name="noQstn" value="<?=max($max)?>" style="visibility:hidden;">
+				<input id="" type="text" class="validate" name="QstnId" value="<?=$QstnId?>" style="visibility:hidden;">
         <input type="submit" name="submit" value="submit" class="waves-effect waves-light btn">
       </form>
 
